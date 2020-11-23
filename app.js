@@ -12,10 +12,10 @@ setInterval(() => {
             canvas[i].classList.remove("visible");
             canvas[i].classList.add("invisible");
         } else {
-            canvas.width = width;
-            canvas.height = width;
             canvas[i].classList.remove("invisible");
             canvas[i].classList.add("visible");
+            canvas.width = width;
+            canvas.height = width;
         }
     }
 }, 1);
