@@ -1,16 +1,14 @@
-var canvas = document.querySelector('.glslCanvas')
+var canvas = new Array(document.getElementById('flowy'), document.getElementById('motion'), document.getElementById('mod'));
 var shaderlist = document.getElementById('shaderlist');
 
-let listValues = new Array();
-listValues[0] = new Array("flow fields", "/shader-code/flowy.frag");
-listValues[1] = new Array("noise motion", "/shader-code/noise-motion.frag");
-listValues[2] = new Array("modulation station", "/shader-code/modulation-station.frag");
+var listValues = new Array("flow fields", "noise motion", "modulation station")
 
-function loadShader(){
+setInterval(() => {
     for (var i = 0; i<3; i++){
-        if (shaderlist.value && shaderlist.value == listValues[i][0]){
-            canvas.width+=10;
-            canvas.setAttribute("data-fragment-url", listValues[i][1]);
+        if (shaderlist.value != listValues[i]){
+            canvas[i].classList.add("invisible");
+        } else {
+            canvas[i].classList.remove("invisible");
         }
     }
-}
+}, 1);

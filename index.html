@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <body>
+    <link rel="stylesheet" href="styles.css">
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
-    <select name= "shaderlist" id="shaderlist" autofocus="flow fields" onclick="loadShader()">
+    <select name= "shaderlist" id="shaderlist" autofocus="flow fields">
     <option value="flow fields">flow fields</option>
     <option value="noise motion">noise motion</option>
     <option value="modulation station">modulation station</option>
     </select>
     
-    <canvas class="glslCanvas" data-fragment-url="./shader-code/flowy.frag" width="500" height="500"></canvas>
+    <canvas class="glslCanvas" id="flowy" data-fragment-url="./shader-code/flowy.frag" width="500" height="500"></canvas>
+    <canvas class="glslCanvas" id="motion" data-fragment-url="./shader-code/noise-motion.frag" width="500" height="500"></canvas>
+    <canvas class="glslCanvas" id="mod" data-fragment-url="./shader-code/modulation-station.frag" width="500" height="500"></canvas>
+    
     <script type="text/javascript" src="app.js"></script>
     </body>
 </html>
