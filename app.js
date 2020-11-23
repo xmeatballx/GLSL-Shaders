@@ -1,6 +1,6 @@
 var canvas = new Array(document.getElementById('flowy'), document.getElementById('motion'), document.getElementById('mod'));
 var shaderlist = document.getElementById('shaderlist');
-var width = 1000;
+var width = 600;
 canvas.width = width;
 canvas.height = width;
 
