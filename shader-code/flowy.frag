@@ -28,7 +28,7 @@ mat2 rotate2d(float angle){
 }
 
 float lines(in vec2 pos, float b){
-    float scale = 5.0;
+    float scale = 50.0;
     pos *= scale;
     return smoothstep(0.0,
                     .5+b*.5,
