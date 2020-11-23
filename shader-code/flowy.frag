@@ -39,15 +39,15 @@ void main() {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     st.y *= u_resolution.y/u_resolution.x;
     //st=st*2.-5.;
-    vec2 pos = st.yx*vec2(noise(st*cos(u_time/30.)/2.)*2., noise(st*sin(u_time/100.)));
+    vec2 pos = st.xy*vec2(noise(st*cos(u_time/30.)/2.)*2., noise(st*sin(u_time/100.)));
 
     float pattern = pos.x;
 
     // Add noise
-   // pos = rotate2d( noise(pos) ) * pos;
+    pos = rotate2d( noise(pos) ) * pos;
 
     // Draw lines
-    pattern = lines(pos,.5);
+    //pattern = lines(pos,.5);
 
     vec3 color = vec3(lines(pos,.5));
 

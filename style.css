@@ -4,6 +4,7 @@
 
 .visible{
     display: block;
+    background-color: color(1, 1, 1, 1);
     width: 500px;
     height: 500px;
 }
