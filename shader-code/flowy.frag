@@ -44,7 +44,7 @@ void main() {
     float pattern = pos.x;
 
     // Add noise
-    pos = rotate2d( noise(pos) ) * pos;
+   // pos = rotate2d( noise(pos) ) * pos;
 
     // Draw lines
     pattern = lines(pos,.5);
