@@ -1,5 +1,4 @@
-var canvas = document.createElement("canvas");
-var sandbox = new GlslCanvas(canvas);
+var canvas = document.querySelector('.glslCanvas')
 var shaderlist = document.getElementById('shaderlist');
 
 let listValues = new Array();
@@ -10,7 +9,7 @@ listValues[2] = new Array("modulation station", "/shader-code/modulation-station
 function loadShader(){
     for (var i = 0; i<3; i++){
         if (shaderlist.value && shaderlist.value == listValues[i][0]){
-            sandbox.load(listValues[i][1]);
+            canvas.setAttribute("data-fragment-url", listValues[i][1]);
         }
     }
 }
