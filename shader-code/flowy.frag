@@ -49,7 +49,7 @@ void main() {
     // Draw lines
     pattern = lines(pos,.5);
 
-    vec3 color = vec3(pos);
+    vec3 color = vec3(pattern);
 
     gl_FragColor = vec4(color,1.0);
 }
