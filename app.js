@@ -9,6 +9,7 @@ listValues[2] = new Array("modulation station", "/shader-code/modulation-station
 function loadShader(){
     for (var i = 0; i<3; i++){
         if (shaderlist.value && shaderlist.value == listValues[i][0]){
+            canvas.width+=0
             canvas.setAttribute("data-fragment-url", listValues[i][1]);
         }
     }
