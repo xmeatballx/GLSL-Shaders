@@ -47,7 +47,7 @@ void main() {
     pos = rotate2d( noise(pos) ) * pos;
 
     // Draw lines
-    //pattern = lines(pos,.5);
+    pattern = lines(pos,.5);
 
     vec3 color = vec3(pattern);
 
