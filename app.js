@@ -6,8 +6,10 @@ var listValues = new Array("flow fields", "noise motion", "modulation station")
 setInterval(() => {
     for (var i = 0; i<3; i++){
         if (shaderlist.value != listValues[i]){
+            canvas[i].classList.remove("visible");
             canvas[i].classList.add("invisible");
         } else {
+            canvas[i].classList.remove("invisible");
             canvas[i].classList.add("visible");
         }
     }
