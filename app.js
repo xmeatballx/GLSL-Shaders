@@ -8,7 +8,7 @@ setInterval(() => {
         if (shaderlist.value != listValues[i]){
             canvas[i].classList.add("invisible");
         } else {
-            canvas[i].classList.remove("invisible");
+            canvas[i].classList.add("visible");
         }
     }
 }, 1);
