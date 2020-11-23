@@ -38,7 +38,7 @@ float lines(in vec2 pos, float b){
 void main() {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     st.y *= u_resolution.y/u_resolution.x;
-
+    st*=2.-5.;
     vec2 pos = st*vec2(noise(st*cos(u_time/30.)), noise(st*sin(u_time/100.)));
 
     float pattern = pos.x;
