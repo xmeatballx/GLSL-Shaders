@@ -2,7 +2,13 @@
 <html>
 <body>
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
+    <select id="shaderlist" autofocus="flow fields" onclick="loadShader">
+    <option value="flow fields">flow fields</option>
+    <option value="noise motion">noise motion</option>
+    <option value="modulation station">modulation station</option>
+    </select>
+    
     <canvas class="glslCanvas" data-fragment-url="./shader-code/flowy.frag" width="500" height="500"></canvas>
-
-</body>
+    <script type="text/javascript" src="app.js"></script>
+    </body>
 </html>
