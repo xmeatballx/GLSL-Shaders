@@ -22,10 +22,10 @@ float noise(vec2 st) {
                      random( i + vec2(1.0,1.0) ), u.x), u.y);
 }
 
-//mat2 rotate2d(float angle){
-//    return mat2(cos(angle),-sin(angle),
-//                sin(angle),cos(angle));
-//}
+mat2 rotate2d(float angle){
+    return mat2(cos(angle),-sin(angle),
+                sin(angle),cos(angle));
+}
 
 float lines(in vec2 pos, float b){
     float scale = 50.0;
