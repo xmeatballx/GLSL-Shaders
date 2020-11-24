@@ -1,3 +1,6 @@
+// Author @patriciogv - 2015
+// http://patriciogonzalezvivo.com
+
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -6,20 +9,15 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
-float random (in vec2 st) {
-    return fract(sin(dot(st.xy,
-                         vec2(12.9898,78.233)))
-                * 43758.5453123);
+float rand(vec2 n) { 
+    return fract(sin(dot(n, vec2(12.9898, 4.1414))) * 43758.5453);
 }
 
-float noise(vec2 st) {
-    vec2 i = floor(st);
-    vec2 f = fract(st);
-    vec2 u = f*f*(3.0-2.0*f);
-    return mix( mix( random( i + vec2(0.0,0.0) ),
-                     random( i + vec2(1.0,0.0) ), u.x),
-                mix( random( i + vec2(0.0,1.0) ),
-                     random( i + vec2(1.0,1.0) ), u.x), u.y);
+
+float noise(vec2 n) {
+    const vec2 d = vec2(0.0, 1.0);
+  vec2 b = floor(n), f = smoothstep(vec2(0.0), vec2(1.0), fract(n));
+    return mix(mix(rand(b), rand(b + d.yx), f.x), mix(rand(b + d.xy), rand(b + d.yy), f.x), f.y);
 }
 
 mat2 rotate2d(float angle){
@@ -38,8 +36,8 @@ float lines(in vec2 pos, float b){
 void main() {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     st.y *= u_resolution.y/u_resolution.x;
-    st*=2.-1.;
-    vec2 pos = st*vec2(noise(st*cos(u_time/30.)), noise(st*sin(u_time/100.)));
+    st*=5.-2.;
+    vec2 pos = st.yx*vec2(noise(st*cos(u_time/3.)), noise(st*sin(u_time/10.)));
 
     float pattern = pos.x;
 
@@ -49,8 +47,5 @@ void main() {
     // Draw lines
     pattern = lines(pos,.5);
 
-    vec3 color = vec3(pattern);
-
-    gl_FragColor = vec4(color,1.0);
+    gl_FragColor = vec4(vec3(pattern),1.0);
 }
-
