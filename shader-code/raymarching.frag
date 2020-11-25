@@ -1,4 +1,4 @@
-#version 410 core
+#version 410
 
 layout(location = 0) out vec4 out_color;
 precision highp float; 
