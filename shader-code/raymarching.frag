@@ -1,9 +1,7 @@
-#version 410
 
-layout(location = 0) out vec4 out_color;
 precision highp float; 
-uniform vec2 v2Resolution;  // Width and height of the shader
-uniform float fGlobalTime;  // Time elapsed
+uniform vec2 u_resolution;  // Width and height of the shader
+uniform float u_time;  // Time elapsed
  
 // Constants
 #define PI 3.1415925359
@@ -46,9 +44,9 @@ float sdCylinder(vec3 p, vec3 a, vec3 b, float r) {
 float GetDist(vec3 p, float sc)
 {
     vec3 pr = p - vec3(0,1,0);
-    pr.xz *= rotate2D(fGlobalTime/4.);
+    pr.xz *= rotate2D(u_time/4.);
     pr.yz *= rotate2D(1.6);
-    pr.zx *= rotate2D(fGlobalTime/2.);
+    pr.zx *= rotate2D(u_time/2.);
     vec4 s = vec4(0.,-.4,0,sc+.3); //Sphere. xyz is position w is radius
     float box = sdBox(pr-vec3(0,-.4,0), vec3(sc));
     float sphereDist = length(pr-s.xyz) - s.w;
@@ -59,7 +57,7 @@ float GetDist(vec3 p, float sc)
     pr.zy *= rotate2D(1.8);
     float cylinder2 = sdCylinder(vec3(pr.x-sin(.5), pr.y, pr.z-.5), vec3(-1.5, -6, -.8), vec3(0, 8., 0), sc*.6);
     float opShape = max(max(sphereDist,-min(min(cylinder, cylinder2), cylinder3)),box);
-    float d = max(opShape*2, opShape*4.)/2.;
+    float d = max(opShape*2., opShape*4.)/2.;
     d = min(d,planeDist);
     //d = cylinder3;
  
@@ -95,7 +93,7 @@ float GetLight(vec3 p)
 { 
     // Light (directional diffuse)
     vec3 lightPos = vec3(5.,5.,2.0);
-    lightPos.xz *= rotate2D(fGlobalTime);// Light Position
+    lightPos.xz *= rotate2D(u_time);// Light Position
     vec3 l = normalize(lightPos-p); // Light Vector
     vec3 n = GetNormal(p); // Normal Vector
    
@@ -117,9 +115,9 @@ vec3 R(vec2 uv, vec3 p, vec3 l, float z) {
  
 void main()
 {
-    vec2 uv = (gl_FragCoord.xy-.5*v2Resolution.xy)/v2Resolution.y;
+    vec2 uv = (gl_FragCoord.xy-.5*u_resolution.xy)/u_resolution.y;
     vec3 ro = vec3(.5,5,-4.); // Ray Origin/Camera
-    //ro.xz *= rotate2D(fGlobalTime);
+    //ro.xz *= rotate2D(u_time);
     vec3 rd = R(uv, ro, vec3(0), .7);
  
     float d = RayMarch(ro,rd); // Distance
@@ -132,5 +130,5 @@ void main()
     //float color = GetLight(p);
  
     // Set the output color
-    out_color = vec4(color,1.0);
+    gl_FragColor = vec4(color,1.0);
 }

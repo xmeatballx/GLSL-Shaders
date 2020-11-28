@@ -4,7 +4,7 @@
     <head><link rel="stylesheet" href="style.css"></head>
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     
-    <select name= "shaderlist" id="shaderlist" autofocus="flow fields">
+    <select name= "shaderlist" id="shaderlist" autofocus="raymarching" width="500" class="select">
     <option value="raymarching">raymarching</option>
     <option value="flow fields">flow fields</option>
     <option value="noise motion">noise motion</option>
@@ -14,7 +14,7 @@
     <canvas class="glslCanvas" id="rays" data-fragment-url="./shader-code/raymarching.frag" width="500" height="500"></canvas>
     <canvas class="glslCanvas" id="flowy" data-fragment-url="./shader-code/flowy.frag" width="500" height="500"></canvas>
     <canvas class="glslCanvas" id="motion" data-fragment-url="./shader-code/noise-motion.frag" width="500" height="500"></canvas>
-    <canvas class="glslCanvas" id="mod" data-fragment-url="./shader-code/modulation-station.frag" width="500" height="500"></canvas>
+    <canvas class="glslCanvas" id="modulate" data-fragment-url="./shader-code/modulation-station.frag" width="500" height="500"></canvas>
     
     <script type="text/javascript" src="app.js"></script>
     </body>
