@@ -1,3 +1,14 @@
+html {
+   margin: 0px;
+   height: 100%;
+   width: 100%;
+}
+
+body {
+    background-color: black;
+    height: 100%;
+}
+
 .invisible{
     display: none;
 }
@@ -11,6 +22,8 @@
 
 select{
     width: 500px;
+    background-color: black;
+    color: white;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -18,8 +31,15 @@ select{
         width: 100%;
         font-size: 50px;
     }
-    canvas {
+    .visible{
         width: 100%;
-        height: width;
+        height: 70%;
+        margin: auto;
+        padding-top: 10%
+    }
+
+    div {
+        height: 100%;
+        width: 100%;
     }
   }

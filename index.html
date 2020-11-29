@@ -3,11 +3,12 @@
 <body>
     <head>
             <link rel="stylesheet" href="style.css">
-            <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     </head>
     <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     
+    <div>
     <select name= "shaderlist" id="shaderlist" autofocus="raymarching" width="500" class="select">
     <option value="raymarching">raymarching</option>
     <option value="flow fields">flow fields</option>
@@ -19,6 +20,7 @@
     <canvas class="glslCanvas" id="flowy" data-fragment-url="./shader-code/flowy.frag" width="500" height="500"></canvas>
     <canvas class="glslCanvas" id="motion" data-fragment-url="./shader-code/noise-motion.frag" width="500" height="500"></canvas>
     <canvas class="glslCanvas" id="modulate" data-fragment-url="./shader-code/modulation-station.frag" width="500" height="500"></canvas>
+    </div>
     
     <script type="text/javascript" src="app.js"></script>
     </body>
