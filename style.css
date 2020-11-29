@@ -16,8 +16,10 @@ select{
 @media only screen and (max-width: 1000px) {
     select{
         width: 100%;
-        height: width;
         font-size: 50px;
     }
-
+    canvas {
+        width: 100%;
+        height: width;
+    }
   }
