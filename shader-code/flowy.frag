@@ -1,6 +1,3 @@
-// Author @patriciogv - 2015
-// http://patriciogonzalezvivo.com
-
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -91,7 +88,7 @@ float lines(in vec2 pos, float b){
 void main() {
     vec2 st = gl_FragCoord.xy/u_resolution.xy;
     st.y *= u_resolution.y/u_resolution.x;
-    //st*=5.-2.;
+    st*=2.-1.;
     vec2 pos = st.yx*vec2(noise(st*cos(u_time/3.)), noise(st*sin(u_time/10.)));
 
     float pattern = pos.x;
