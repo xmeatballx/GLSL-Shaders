@@ -6,9 +6,9 @@ uniform float u_time;  // Time elapsed
 // Constants
 #define PI 3.1415925359
 #define TWO_PI 6.2831852
-#define MAX_STEPS 100
-#define MAX_DIST 100.
-#define SURFACE_DIST .001
+#define MAX_STEPS 10000
+#define MAX_DIST 1000.
+#define SURFACE_DIST .00001
 
 precision highp float;
 
@@ -124,11 +124,10 @@ void main()
    
     vec3 p = ro + rd * d;
     float dif = GetLight(p); // Diffuse lighting
-    d*= .2;
+    //d*= .2;
     vec3 color = vec3(dif);
     //color += GetNormal(p);
     //float color = GetLight(p);
  
-    // Set the output color
     gl_FragColor = vec4(color,1.0);
 }

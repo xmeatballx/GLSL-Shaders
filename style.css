@@ -16,8 +16,8 @@ body {
 .visible{
     display: block;
     background-color: color(1, 1, 1, 1);
-    width: 650px;
-    height: 650px;
+    width: 50%;
+    height: 50%;
     margin: auto;
     padding-top: 1%;
 }
